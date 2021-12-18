@@ -1,5 +1,11 @@
 import Profile from './components/Profile';
-import user from './user.json';
+import StatisticList from './StatisticList';
+import FriendList from './FriendList';
+import TransactionHistory from './TransactionHistory';
+import user from './json/user.json';
+import data from './json/data.json';
+import friends from './json/friends.json';
+import transactions from './json/transaction.json';
 import './App.css';
 
 export default function App() {
@@ -16,6 +22,9 @@ export default function App() {
         likes={user.likes}
       />
       ,
+      <StatisticList title="Upload stats" data={data} />,
+      <FriendList friends={friends} />,
+      <TransactionHistory transactions={transactions} />
     </div>
   );
 }

@@ -1,7 +1,9 @@
+import PropTypes from 'prop-types';
+
 export default function Profile(props) {
   const { avatar, username, tag, location, followers, views, likes } = props;
   return (
-    <div className="profile">
+    <div className="profile" key={tag}>
       <div className="description">
         <img src={avatar} alt={username} className="avatar" />
         <p className="name">{username}</p>
@@ -26,3 +28,13 @@ export default function Profile(props) {
     </div>
   );
 }
+
+Profile.propTypes = {
+  avatar: PropTypes.string,
+  username: PropTypes.string,
+  tag: PropTypes.string,
+  location: PropTypes.string,
+  followers: PropTypes.number,
+  views: PropTypes.number,
+  likes: PropTypes.number,
+};

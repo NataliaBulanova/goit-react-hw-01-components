@@ -1,20 +1,21 @@
-import Transaction from './Transaction';
+import Transaction from '../Transaction/Transaction';
 import PropTypes from 'prop-types';
+import { Table, TableHead } from './TransactionHistory.styled';
 
 export default function TransactionHistory({ transactions }) {
   return (
-    <table className="transaction-history">
+    <Table>
       <thead>
         <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+          <TableHead>Type</TableHead>
+          <TableHead>Amount</TableHead>
+          <TableHead>Currency</TableHead>
         </tr>
       </thead>
 
       <tbody>
-        {transactions.map(transaction => {
-          const { id, type, amount, currency } = transaction;
+        {transactions.map(({ id, type, amount, currency }) => {
+          // const { id, type, amount, currency } = transaction;
           return (
             <Transaction
               key={id}
@@ -25,7 +26,7 @@ export default function TransactionHistory({ transactions }) {
           );
         })}
       </tbody>
-    </table>
+    </Table>
   );
 }
 

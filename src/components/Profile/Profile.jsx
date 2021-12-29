@@ -11,8 +11,13 @@ import {
   StatQuantity,
 } from './Profile.styled';
 
-export default function Profile(user) {
-  const { avatar, username, tag, location, followers, views, likes } = user;
+export default function Profile({
+  avatar,
+  username,
+  tag,
+  location,
+  stats: { followers, views, likes },
+}) {
   return (
     <Card key={tag}>
       <Description>
@@ -41,13 +46,13 @@ export default function Profile(user) {
 }
 
 Profile.propTypes = {
-  user: PropTypes.shape({
-    avatar: PropTypes.string,
-    username: PropTypes.string,
-    tag: PropTypes.string,
-    location: PropTypes.string,
-    followers: PropTypes.number,
-    views: PropTypes.number,
-    likes: PropTypes.number,
+  avatar: PropTypes.string.isRequired,
+  username: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  stats: PropTypes.shape({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
   }),
 };

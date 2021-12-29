@@ -6,7 +6,6 @@ import user from '../../json/user.json';
 import data from '../../json/data.json';
 import friends from '../../json/friends.json';
 import transactions from '../../json/transaction.json';
-import './App.css';
 import { Container } from './App.styled';
 
 export default function App() {
@@ -17,13 +16,11 @@ export default function App() {
         username={user.username}
         tag={user.tag}
         location={user.location}
-        followers={user.stats.followers}
-        views={user.stats.views}
-        likes={user.stats.likes}
+        stats={user.stats}
       />
       <StatisticList title="Upload stats" data={data} />
       <FriendList friends={friends} />
-      <TransactionHistory transactions={transactions} />
+      <TransactionHistory items={transactions} />
     </Container>
   );
 }

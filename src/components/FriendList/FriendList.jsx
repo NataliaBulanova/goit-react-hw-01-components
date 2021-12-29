@@ -5,8 +5,7 @@ import { List } from './FriendList.styled';
 export default function FriendList({ friends }) {
   return (
     <List>
-      {friends.map(friend => {
-        const { avatar, name, isOnline, id } = friend;
+      {friends.map(({ avatar, name, isOnline, id }) => {
         return (
           <Friend key={id} avatar={avatar} name={name} isOnline={isOnline} />
         );
@@ -16,5 +15,12 @@ export default function FriendList({ friends }) {
 }
 
 FriendList.propType = {
-  friends: PropTypes.arrayOf(PropTypes.shape({})),
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
+    }),
+  ),
 };
